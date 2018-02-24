@@ -8,7 +8,7 @@ class Ship
 
     public $jediFactor = 0;
 
-    public $strength = 0;
+    public $strength = 100;
 
     public function getName()
     {
@@ -35,6 +35,11 @@ class Ship
             );
         }
     }
+
+    public function doesGivenShipHasMoreStrength($givenShip)
+    {
+        return $givenShip->strength > $this->strength;
+    }
 }
 
 $myShip = new Ship();
@@ -47,5 +52,16 @@ echo '<hr/>';
 echo $myShip->getNameAndSpecs(true);
 echo '<hr/>';
 echo $myShip->getNameAndSpecs(false);
+echo '<hr/>';
+
+$badShip = new Ship();
+$badShip->name = 'Dar Vader Ship';
+$badShip->strength = 50;
+
+if ($myShip->doesGivenShipHasMoreStrength($badShip)) {
+    echo $badShip->name . ' has more strength than other ship.';
+} else {
+    echo $myShip->name . ' has more strength than other ship';
+}
 
 

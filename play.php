@@ -36,6 +36,22 @@ class Ship
         }
     }
 
+    /**
+     * @param Ship $someShip
+     */
+    public function printShipSummary($someShip)
+    {
+        echo '<strong>'.'The name of my ship is: '. $someShip->name;
+        echo '<hr/>';
+        $someShip->weaponPower = 10;
+        echo '<strong>'.'Weapon Power of '.$someShip->name.' is :'.$someShip->weaponPower;
+        echo '<hr/>';
+        echo $someShip->getNameAndSpecs(true);
+        echo '<hr/>';
+        echo $someShip->getNameAndSpecs(false);
+        echo '<hr/>';
+    }
+
     public function doesGivenShipHasMoreStrength($givenShip)
     {
         return $givenShip->strength > $this->strength;
@@ -44,14 +60,8 @@ class Ship
 
 $myShip = new Ship();
 $myShip->name = 'Millenium Falcon';
-echo '<strong>'.'The name of my ship is: '.$myShip->name;
-echo '<hr/>';
-$myShip->weaponPower = 10;
-echo '<strong>'.'Weapon Power of '.$myShip->name.' is :'.$myShip->weaponPower;
-echo '<hr/>';
-echo $myShip->getNameAndSpecs(true);
-echo '<hr/>';
-echo $myShip->getNameAndSpecs(false);
+$myShip->printShipSummary($myShip);
+
 echo '<hr/>';
 
 $badShip = new Ship();

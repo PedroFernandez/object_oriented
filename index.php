@@ -65,11 +65,7 @@ if (isset($_GET['error'])) {
                 <tbody>
                     <?php foreach ($ships as $ship): ?>
                         <tr>
-                            <td><?php echo $ship['name']; ?></td>
-                            <td><?php echo $ship['weapon_power']; ?></td>
-                            <td><?php echo $ship['jedi_factor']; ?></td>
-                            <td><?php echo $ship['strength']; ?></td>
-                        </tr>
+                            <td><?php echo $ship->getNameAndSpecs($ship); ?></td></tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -82,7 +78,7 @@ if (isset($_GET['error'])) {
                         <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="ship1_name">
                             <option value="">Choose a Ship</option>
                             <?php foreach ($ships as $key => $ship): ?>
-                                <option value="<?php echo $key; ?>"><?php echo $ship['name']; ?></option>
+                                <option value="<?php echo $key; ?>"><?php echo $ship->getNameAndSpecs($ship); ?></option>
                             <?php endforeach; ?>
                         </select>
                         <br>
@@ -92,7 +88,7 @@ if (isset($_GET['error'])) {
                         <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="ship2_name">
                             <option value="">Choose a Ship</option>
                             <?php foreach ($ships as $key => $ship): ?>
-                                <option value="<?php echo $key; ?>"><?php echo $ship['name']; ?></option>
+                                <option value="<?php echo $key; ?>"><?php echo $ship->getNameAndSpecs($ship); ?></option>
                             <?php endforeach; ?>
                         </select>
                         <br>

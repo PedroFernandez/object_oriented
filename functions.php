@@ -6,41 +6,37 @@ function get_ships()
 {
 
     $ships = [];
-    $ship = new Ship();
-    $ship->name = 'Jedi Starfighter';
-    $ship->weaponPower = 5;
-    $ship->jediFactor = 15;
-    $ship->strength = 30;
-    $ships[] = $ship;
+
+    /** @var Ship $ship1 */
+    $ship1 = new Ship();
+    $ship1->setName('Jedi Starfighter');
+    $ship1->setWeaponPower(5);
+    $ship1->setJediFactor(15);
+    $ship1->setStrength(30);
+    $ships['jedi_starfighter'] = $ship1;
+
+    $ship2 = new Ship();
+    $ship2->setName('Cloakshape Fighter');
+    $ship2->setWeaponPower(2);
+    $ship2->setJediFactor(2);
+    $ship2->setStrength(70);
+    $ships['cloakshape_fighter'] = $ship2;
+
+    $ship3 = new Ship();
+    $ship3->setName('Super Star Destroyer');
+    $ship3->setWeaponPower(2);
+    $ship3->setJediFactor(2);
+    $ship3->setStrength(70);
+    $ships['super_star_destroyer'] = $ship3;
+
+    $ship4 = new Ship();
+    $ship4->setName('RZ1 A Wing Interceptor');
+    $ship4->setWeaponPower(2);
+    $ship4->setJediFactor(2);
+    $ship4->setStrength(70);
+    $ships['rz1_a_wing_interceptor'] = $ship4;
 
     return $ships;
-
-//    return array(
-//        'starfighter' => array(
-//            'name' => 'Jedi Starfighter',
-//            'weapon_power' => 5,
-//            'jedi_factor' => 15,
-//            'strength' => 30,
-//        ),
-//        'cloakshape_fighter' => array(
-//            'name' => 'CloakShape Fighter',
-//            'weapon_power' => 2,
-//            'jedi_factor' => 2,
-//            'strength' => 70,
-//        ),
-//        'super_star_destroyer' => array(
-//            'name' => 'Super Star Destroyer',
-//            'weapon_power' => 70,
-//            'jedi_factor' => 0,
-//            'strength' => 500,
-//        ),
-//        'rz1_a_wing_interceptor' => array(
-//            'name' => 'RZ-1 A-wing interceptor',
-//            'weapon_power' => 4,
-//            'jedi_factor' => 4,
-//            'strength' => 50,
-//        ),
-//    );
 }
 
 /**

@@ -15,6 +15,63 @@ class Ship
         return $this->name;
     }
 
+    /**
+     * @return int
+     */
+    public function getWeaponPower()
+    {
+        return $this->weaponPower;
+    }
+
+    /**
+     * @param int $weaponPower
+     */
+    public function setWeaponPower($weaponPower)
+    {
+        $this->weaponPower = $weaponPower;
+    }
+
+    /**
+     * @return int
+     */
+    public function getJediFactor()
+    {
+        return $this->jediFactor;
+    }
+
+    /**
+     * @param int $jediFactor
+     */
+    public function setJediFactor($jediFactor)
+    {
+        $this->jediFactor = $jediFactor;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStrength()
+    {
+        return $this->strength;
+    }
+
+    /**
+     * @param int $strength
+     */
+    public function setStrength($strength)
+    {
+        $this->strength = $strength;
+    }
+
+
     public function getNameAndSpecs($useShortFormat = false)
     {
         if ($useShortFormat) {

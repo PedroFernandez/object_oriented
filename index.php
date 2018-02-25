@@ -65,7 +65,10 @@ if (isset($_GET['error'])) {
                 <tbody>
                     <?php foreach ($ships as $ship): ?>
                         <tr>
-                            <td><?php echo $ship->getNameAndSpecs($ship); ?></td></tr>
+                            <td><?php echo $ship->getName(); ?></td>
+                            <td><?php echo $ship->getWeaponPower(); ?></td>
+                            <td><?php echo $ship->getJediFactor(); ?></td>
+                            <td><?php echo $ship->getStrength(); ?></td>
                     <?php endforeach; ?>
                 </tbody>
             </table>

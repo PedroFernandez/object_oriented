@@ -2,13 +2,13 @@
 
 class Ship
 {
-    public $name;
+    private $name;
 
-    public $weaponPower = 0;
+    private $weaponPower = 0;
 
-    public $jediFactor = 0;
+    private $jediFactor = 0;
 
-    public $strength = 100;
+    private $strength = 100;
 
     public function getName()
     {

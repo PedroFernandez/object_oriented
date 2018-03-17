@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/functions.php';
+require __DIR__. '/lib/BattleManager.php';
 
 $ships = get_ships();
 
@@ -26,7 +27,8 @@ if ($ship1Quantity <= 0 || $ship2Quantity <= 0) {
 $ship1 = $ships[$ship1Name];
 $ship2 = $ships[$ship2Name];
 
-$outcome = battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
+$battleManager = new BattleManager();
+$outcome = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Quantity);
 ?>
 
 <html>

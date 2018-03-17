@@ -1,6 +1,5 @@
 <?php
-require __DIR__.'/functions.php';
-require __DIR__. '/lib/ShipLoader.php';
+require __DIR__ . '/bootstrap.php';
 
 $shipLoader = new ShipLoader();
 $ships = $shipLoader->get_ships();

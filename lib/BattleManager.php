@@ -53,6 +53,9 @@ class BattleManager
             $usedJediPowers = $ship1UsedJediPowers;
         }
 
+        $ship1->setStrength($ship1Health);
+        $ship2->setStrength($ship2Health);
+
         return new BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
 

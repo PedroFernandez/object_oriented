@@ -1,8 +1,10 @@
 <?php
 require __DIR__.'/functions.php';
 require __DIR__. '/lib/BattleManager.php';
+require __DIR__. '/lib/ShipLoader.php';
 
-$ships = get_ships();
+$shipLoader = new ShipLoader();
+$ships = $shipLoader->get_ships();
 
 $ship1Name = isset($_POST['ship1_name']) ? $_POST['ship1_name'] : null;
 $ship1Quantity = isset($_POST['ship1_quantity']) ? $_POST['ship1_quantity'] : 1;

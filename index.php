@@ -1,7 +1,9 @@
 <?php
 require __DIR__.'/functions.php';
+require __DIR__. '/lib/ShipLoader.php';
 
-$ships = get_ships();
+$shipLoader = new ShipLoader();
+$ships = $shipLoader->get_ships();
 
 $errorMessage = '';
 if (isset($_GET['error'])) {

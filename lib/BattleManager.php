@@ -53,7 +53,7 @@ class BattleManager
             $usedJediPowers = $ship1UsedJediPowers;
         }
 
-        return new BattleResult($winningShip, $losingShip, $usedJediPowers);
+        return new BattleResult($usedJediPowers, $winningShip, $losingShip);
     }
 
     private function didJediDestroyShipUsingTheForce(Ship $ship)

@@ -2,13 +2,14 @@
 
 class ShipLoader
 {
-    public function get_ships()
+    public function getShips()
     {
         $shipsData = $this->queryForShips();
 
         $ships = [];
         foreach ($shipsData as $shipData) {
             $ship = new Ship($shipData['name']);
+            $ship->setId($shipData['id']);
             $ship->setStrength($shipData['strength']);
             $ship->setWeaponPower($shipData['weapon_power']);
             $ship->setJediFactor($shipData['jedi_factor']);

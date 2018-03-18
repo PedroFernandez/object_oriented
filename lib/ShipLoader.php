@@ -4,34 +4,31 @@ class ShipLoader
 {
     public function get_ships()
     {
+        $shipsData = $this->queryForShips();
 
         $ships = [];
-
-        /** @var Ship $ship1 */
-        $ship1 = new Ship('Jedi Starfighter');
-        $ship1->setWeaponPower(5);
-        $ship1->setJediFactor(15);
-        $ship1->setStrength(30);
-        $ships['jedi_starfighter'] = $ship1;
-
-        $ship2 = new Ship('Cloakshape Fighter');
-        $ship2->setWeaponPower(2);
-        $ship2->setJediFactor(2);
-        $ship2->setStrength(70);
-        $ships['cloakshape_fighter'] = $ship2;
-
-        $ship3 = new Ship('Super Star Destroyer');
-        $ship3->setWeaponPower(2);
-        $ship3->setJediFactor(2);
-        $ship3->setStrength(70);
-        $ships['super_star_destroyer'] = $ship3;
-
-        $ship4 = new Ship('RZ1 A Wing Interceptor');
-        $ship4->setWeaponPower(2);
-        $ship4->setJediFactor(2);
-        $ship4->setStrength(70);
-        $ships['rz1_a_wing_interceptor'] = $ship4;
+        foreach ($shipsData as $shipData) {
+            $ship = new Ship($shipData['name']);
+            $ship->setStrength($shipData['strength']);
+            $ship->setWeaponPower($shipData['weapon_power']);
+            $ship->setJediFactor($shipData['jedi_factor']);
+            $ships[] = $ship;
+        }
 
         return $ships;
+    }
+
+    /**
+     * @return array
+     */
+    protected function queryForShips(): array
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root', 'root');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare('SELECT * from ship');
+        $statement->execute();
+        $shipsArray = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $shipsArray;
     }
 }

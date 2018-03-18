@@ -124,6 +124,10 @@ class Ship
         echo '<hr/>';
     }
 
+    /**
+     * @param $givenShip
+     * @return bool
+     */
     public function doesGivenShipHasMoreStrength($givenShip)
     {
         return $givenShip->strength > $this->strength;

@@ -2,6 +2,9 @@
 
 class ShipLoader
 {
+    /**
+     * @return Ship[]
+     */
     public function getShips()
     {
         $shipsData = $this->queryForShips();
@@ -16,6 +19,10 @@ class ShipLoader
         return $ships;
     }
 
+    /**
+     * @param $id
+     * @return null|Ship
+     */
     public function findOneById($id)
     {
         $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root', 'root');

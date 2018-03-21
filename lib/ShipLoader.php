@@ -8,6 +8,34 @@ class ShipLoader
     private $pdo;
 
     /**
+     * @var string
+     */
+    private $dns;
+
+    /**
+     * @var string
+     */
+    private $dbUser;
+
+    /**
+     * @var string
+     */
+    private $dbPass;
+
+    /**
+     * ShipLoader constructor.
+     * @param $dns
+     * @param $dbUser
+     * @param $dbPass
+     */
+    public function __construct($dns, $dbUser, $dbPass)
+    {
+        $this->dns = $dns;
+        $this->dbUser = $dbUser;
+        $this->dbPass = $dbPass;
+    }
+
+    /**
      * @return Ship[]
      */
     public function getShips()
@@ -73,11 +101,9 @@ class ShipLoader
     private function getPdo()
     {
         if (is_null($this->pdo)) {
-            $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root', 'root');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = new PDO($this->dns, $this->dbUser, $this->dbPass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
-        $this->pdo = $pdo;
 
         return $this->pdo;
     }

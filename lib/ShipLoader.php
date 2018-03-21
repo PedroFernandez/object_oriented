@@ -3,6 +3,11 @@
 class ShipLoader
 {
     /**
+     * @var $pdo PDO
+     */
+    private $pdo;
+
+    /**
      * @return Ship[]
      */
     public function getShips()
@@ -25,8 +30,7 @@ class ShipLoader
      */
     public function findOneById($id)
     {
-        $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root', 'root');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = $this->getPdo();
         $statement = $pdo->prepare('SELECT * from ship WHERE id = :id');
         $statement->execute(array('id' => $id));
         $shipArray = $statement->fetch(PDO::FETCH_ASSOC);
@@ -61,5 +65,20 @@ class ShipLoader
         $ship->setJediFactor($shipData['jedi_factor']);
 
         return $ship;
+    }
+
+    /**
+     * @return PDO
+     */
+    private function getPdo()
+    {
+        if (is_null($this->pdo)) {
+            $pdo = new PDO('mysql:host=localhost;dbname=oo_battle', 'root', 'root');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+
+        $this->pdo = $pdo;
+
+        return $this->pdo;
     }
 }

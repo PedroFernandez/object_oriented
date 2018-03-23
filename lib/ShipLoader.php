@@ -8,31 +8,12 @@ class ShipLoader
     private $pdo;
 
     /**
-     * @var string
-     */
-    private $dns;
-
-    /**
-     * @var string
-     */
-    private $dbUser;
-
-    /**
-     * @var string
-     */
-    private $dbPass;
-
-    /**
      * ShipLoader constructor.
-     * @param $dns
-     * @param $dbUser
-     * @param $dbPass
+     * @param PDO $pdo
      */
-    public function __construct($dns, $dbUser, $dbPass)
+    public function __construct($pdo)
     {
-        $this->dns = $dns;
-        $this->dbUser = $dbUser;
-        $this->dbPass = $dbPass;
+        $this->pdo = $pdo;
     }
 
     /**
@@ -100,11 +81,6 @@ class ShipLoader
      */
     private function getPdo()
     {
-        if (is_null($this->pdo)) {
-            $this->pdo = new PDO($this->dns, $this->dbUser, $this->dbPass);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-
         return $this->pdo;
     }
 }

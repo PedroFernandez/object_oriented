@@ -2,6 +2,8 @@
 
 class Container
 {
+    private $pdo;
+
     public function __construct($configuration)
     {
         $this->configuration = $configuration;
@@ -9,12 +11,14 @@ class Container
 
     public function getPdo()
     {
-        $pdo = new PDO(
-            $this->configuration['db_dns'],
-            $this->configuration['db_user'],
-            $this->configuration['db_pass']
-        );
+        if ($this->pdo === null) {
+            $this->pdo = new PDO(
+                $this->configuration['db_dns'],
+                $this->configuration['db_user'],
+                $this->configuration['db_pass']
+            );
+        }
 
-        return $pdo;
+        return $this->pdo;
     }
 }

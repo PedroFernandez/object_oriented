@@ -67,7 +67,13 @@ class ShipLoader
 
     private function createShipFromData($shipData)
     {
-        $ship = new Ship($shipData['name']);
+        if ($shipData['team'] == 'rebel')
+        {
+            $ship = new RebelShip($shipData['name']);
+        } else {
+            $ship = new Ship($shipData['name']);
+        }
+
         $ship->setId($shipData['id']);
         $ship->setStrength($shipData['strength']);
         $ship->setWeaponPower($shipData['weapon_power']);

@@ -105,6 +105,11 @@ class Ship
         return !$this->underRepair;
     }
 
+    public function getType()
+    {
+        return 'EMPIRE';
+    }
+
     public function getNameAndSpecs($useShortFormat = false)
     {
         if ($useShortFormat) {

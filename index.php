@@ -62,6 +62,7 @@ if (isset($_GET['error'])) {
                         <th>Weapon Power</th>
                         <th>Jedi Factor</th>
                         <th>Strength</th>
+                        <th>Type</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -78,6 +79,7 @@ if (isset($_GET['error'])) {
                                     <i class="fa fa-cloud"></i>
                                 <?php endif; ?>
                             </td>
+                            <td><?php echo $ship->getType(); ?></td>
                     <?php endforeach; ?>
                 </tbody>
             </table>

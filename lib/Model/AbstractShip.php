@@ -1,6 +1,6 @@
 <?php
 
-class AbstractClass
+class AbstractShip
 {
     private $id;
 

@@ -1,6 +1,6 @@
 <?php
 
-class Ship extends AbstractClass
+class Ship extends AbstractShip
 {
     private $jediFactor = 0;
 

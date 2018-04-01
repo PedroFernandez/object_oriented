@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__. '/lib/Model/AbstractClass.php';
+require __DIR__ . '/lib/Model/AbstractShip.php';
 require __DIR__. '/lib/Model/Ship.php';
 require __DIR__. '/lib/Model/RebelShip.php';
 require __DIR__. '/lib/Model/BattleResult.php';

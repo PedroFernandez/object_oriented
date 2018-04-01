@@ -1,10 +1,11 @@
 <?php
 
+require __DIR__. '/lib/Model/AbstractClass.php';
 require __DIR__. '/lib/Model/Ship.php';
 require __DIR__. '/lib/Model/RebelShip.php';
+require __DIR__. '/lib/Model/BattleResult.php';
 require __DIR__. '/lib/Service/BattleManager.php';
 require __DIR__. '/lib/Service/ShipLoader.php';
-require __DIR__. '/lib/Model/BattleResult.php';
 require __DIR__. '/lib/Service/Container.php';
 
 $configuration = [

@@ -8,7 +8,9 @@ require __DIR__. '/lib/Model/BrokenShip.php';
 require __DIR__. '/lib/Service/BattleManager.php';
 require __DIR__. '/lib/Service/ShipLoader.php';
 require __DIR__. '/lib/Service/Container.php';
+require __DIR__.'/lib/Service/AbstractShipStorage.php';
 require __DIR__.'/lib/Service/PdoShipStorage.php';
+require __DIR__.'/lib/Service/JsonFileShipStorage.php';
 
 $configuration = [
     'db_dns' => 'mysql:host=localhost;dbname=oo_battle',

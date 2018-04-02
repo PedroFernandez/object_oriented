@@ -3,20 +3,20 @@
 class ShipLoader
 {
     /**
-     * @var PdoShipStorage
+     * @var AbstractShipStorage
      */
     private $shipStorage;
 
     /**
-     * @param PdoShipStorage $shipStorage
+     * @param AbstractShipStorage $shipStorage
      */
-    public function __construct(PdoShipStorage $shipStorage)
+    public function __construct(AbstractShipStorage $shipStorage)
     {
         $this->shipStorage = $shipStorage;
     }
 
     /**
-     * @return Ship[]
+     * @return AbstractShipStorage[]
      */
     public function getShips()
     {

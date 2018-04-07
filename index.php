@@ -8,6 +8,8 @@ $ships = $shipLoader->getShips();
 $brokenShip = new BrokenShip('I\'m so broken');
 $ships[] = $brokenShip;
 
+$battleTypes = BattleManager::getAllBattleTypesWithDescription();
+
 $errorMessage = '';
 if (isset($_GET['error'])) {
     switch ($_GET['error']) {
@@ -117,9 +119,9 @@ if (isset($_GET['error'])) {
                         <br>
                         <select class="center-block form-control btn drp-dwn-width btn-default dropdown-toggle" name="battle_type" id="battle_type">
                             <option value="">Choose a Battle Type</option>
-                            <option value="normal"><?php echo BattleManager::TYPE_NORMAL; ?></option>
-                            <option value="no_jedi"><?php echo BattleManager::TYPE_NO_JEDI; ?></option>
-                            <option value="only_jedi"><?php echo BattleManager::TYPE_ONLY_JEDI; ?></option>
+                            <?php foreach ($battleTypes as $battleType => $battleDescription): ?>
+                                <option value="<?php echo $battleType; ?>"><?php echo $battleDescription; ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <br>
                         <button class="btn btn-md btn-danger center-block" type="submit">Engage</button>

@@ -1,5 +1,10 @@
 <?php
 
+namespace Service;
+
+use PDO;
+use Service\BattleManager;
+
 class Container
 {
     private $pdo;

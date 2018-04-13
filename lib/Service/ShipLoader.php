@@ -2,6 +2,7 @@
 
 namespace Service;
 
+use Model\BauntyHunterShip;
 use Model\RebelShip;
 use Model\Ship;
 use Model\ShipCollection;
@@ -39,6 +40,8 @@ class ShipLoader
 
             $ships[] = $ship;
         }
+
+        $ships[] = new BauntyHunterShip('Slave I');
 
         return new ShipCollection($ships);
     }

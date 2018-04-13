@@ -4,6 +4,7 @@ namespace Service;
 
 use Model\RebelShip;
 use Model\Ship;
+use Model\ShipCollection;
 
 class ShipLoader
 {
@@ -21,7 +22,7 @@ class ShipLoader
     }
 
     /**
-     * @return ShipStorageInterface[]
+     * @return ShipCollection
      */
     public function getShips()
     {
@@ -39,7 +40,7 @@ class ShipLoader
             $ships[] = $ship;
         }
 
-        return $ships;
+        return new ShipCollection($ships);
     }
 
     /**

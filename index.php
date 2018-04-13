@@ -5,13 +5,14 @@ use Service\BattleManager;
 use Service\Container;
 use Model\BrokenShip;
 
-
 $container = new Container($configuration);
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
 
 $brokenShip = new BrokenShip('I\'m so broken');
 $ships[] = $brokenShip;
+
+$ships->removeAllBrokenShips();
 
 $battleTypes = BattleManager::getAllBattleTypesWithDescription();
 

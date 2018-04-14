@@ -44,14 +44,14 @@ class Container
 
     public function getPdoShipStorage()
     {
-        if ($this->pdoShipStorage === null) {
-            $this->pdoShipStorage = new PdoShipStorage($this->getPdo());
+        if ($this->shipStorage === null) {
+            $this->shipStorage = new PdoShipStorage($this->getPdo());
 //            $this->pdoShipStorage = new JsonFileShipStorage(__DIR__ . '/../../resources/ships.json');
 
-            $this->pdoShipStorage = new LoggableShipStorage($this->pdoShipStorage);
+            $this->shipStorage = new LoggableShipStorage($this->shipStorage);
         }
 
-        return $this->pdoShipStorage;
+        return $this->shipStorage;
     }
 
     public function getBattleManager()

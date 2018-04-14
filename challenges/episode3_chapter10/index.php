@@ -6,8 +6,8 @@ require 'GasPlanet.php';
 require 'PlanetRenderer.php';
 
 $planets = array(
-    new SolidPlanet(10, 'CC66FF'),
-    new SolidPlanet(50, '00FF99'),
+    new RandomlyColoredPlanet(10, 'CC66FF'),
+    new RandomlyColoredPlanet(50, '00FF99'),
     new GasPlanet('ammonia', 100),
     new GasPlanet('methane', 150),
 );

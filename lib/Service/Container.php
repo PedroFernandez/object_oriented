@@ -12,6 +12,8 @@ class Container
 
     private $pdoShipStorage;
 
+    private $loggableShipStorage;
+
     public function __construct($configuration)
     {
         $this->configuration = $configuration;
@@ -45,6 +47,8 @@ class Container
         if ($this->pdoShipStorage === null) {
             $this->pdoShipStorage = new PdoShipStorage($this->getPdo());
 //            $this->pdoShipStorage = new JsonFileShipStorage(__DIR__ . '/../../resources/ships.json');
+
+            $this->pdoShipStorage = new LoggableShipStorage($this->pdoShipStorage);
         }
 
         return $this->pdoShipStorage;

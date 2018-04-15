@@ -2,6 +2,8 @@
 
 namespace Service;
 
+use Exception\InvalidRadiusException;
+use Exception\MissingHexException;
 use Model\Planet\PlanetInterface;
 
 class PlanetRenderer
@@ -9,7 +11,10 @@ class PlanetRenderer
     public function render(PlanetInterface $planet)
     {
         if (0 >= $planet->getRadius()) {
-            throw new \Exception('The radius of a planet should be greater than 0!');
+            throw new InvalidRadiusException('The radius of a planet should be greater than 0!');
+        }
+        if (!$planet->getHexColor()) {
+            throw new MissingHexException('The hex color is missing!');
         }
 
         return sprintf(
